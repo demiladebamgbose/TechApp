@@ -49,6 +49,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.title.setText(article.getTitle());
         Glide.with(mContext).load(article.getUrlToImage()).into(holder.newsImage);
 
+        holder.articleCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, DetailActivity.class);
+                intent.putExtra("Article", article);
+                mContext.startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -70,20 +79,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         public @BindView(R.id.title) TextView title;
         public @BindView(R.id.description) TextView desription;
         public @BindView(R.id.news_image) ImageView newsImage;
-        public @BindView(R.id.see_more) TextView seeMore;
+        public @BindView(R.id.article_card) LinearLayout articleCard;
         Context context;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            context = itemView.getContext();
         }
 
-        @OnClick(R.id.see_more)
-        public void onSeeMoreClicked(View v) {
-            Intent intent = new Intent(context, DetailActivity.class);
-            context.startActivity(intent);
-        }
+//        @OnClick(R.id.see_more)
+//        public void onSeeMoreClicked(View v) {
+//            Intent intent = new Intent(context, DetailActivity.class);
+//            context.startActivity(intent);
+//        }
     }
 }
