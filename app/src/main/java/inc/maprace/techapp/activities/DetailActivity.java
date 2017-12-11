@@ -14,6 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,22 +44,32 @@ public class DetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        article = intent.getParcelableExtra("Article");
-        toolbar.setTitle(article.getTitle());
+
+
+        //Set up toolbar
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-
-
-
-
+        // Populate view
+        article = intent.getParcelableExtra("Article");
+        toolbar.setTitle(article.getTitle());
         Glide.with(this).load(article.getUrlToImage()).into(newsImage);
         newsTitle.setText(article.getTitle());
         newsBody.setText(article.getDescription());
         newsSource.setText(article.getSourceName());
         newsAuthor.setText(article.getAuthor());
         newsDate.setText(article.getPublishedAt());
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        try {
+            date = simpleDateFormat.parse(article.getPublishedAt());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        newsDate.setText((date == null) ? "not available" : date.toString());
+
     }
 
     @Override
@@ -64,9 +78,9 @@ public class DetailActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_SUBJECT, article.getUrl());
-            startActivity(Intent.createChooser(intent, "Share news via"));
+            startActivity(Intent.createChooser(intent, "Share this news via: "));
         } catch(Exception e) {
-            //e.toString();
+            e.printStackTrace();
         }
 
         return  true;
@@ -81,7 +95,8 @@ public class DetailActivity extends AppCompatActivity {
 
     @OnClick(R.id.link_out)
     public void linkToNews(View v) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(article.getUrl()));
+        Intent intent = new Intent(this, WebViewActivity.class);
+        intent.putExtra("url", article.getUrl());
         startActivity(intent);
     }
 

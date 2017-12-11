@@ -19,8 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DetailActivity"
+        <activity
+            android:name=".activities.DetailActivity"
             android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".activities.WebViewActivity"
             android:theme="@style/NoActionBarTheme"></activity>
     </application>
 

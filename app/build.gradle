@@ -32,7 +32,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:design:26.1.0'
 
-
     //Dagger
     compile 'com.google.dagger:dagger-android:2.12'
     compile 'com.google.dagger:dagger-android-support:2.12' // if you use the support libraries

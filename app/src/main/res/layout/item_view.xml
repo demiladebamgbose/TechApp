@@ -39,16 +39,33 @@
                     android:layout_marginLeft="20dp"
                     android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:text="Description bla bla vbf dbhjb dhfjbhf jbd jhfbh dhjbdhjbjhbd hfbbbhdk"
-                    android:maxLines="2"
-                    android:textStyle="normal"
-                    android:id="@+id/description"
-                    android:textSize="12sp"
-                    android:maxLength="60"
-                    android:layout_marginLeft="20dp"
-                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:text="By:"
+                        android:maxLines="2"
+                        android:textStyle="normal"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Janet"
+                        android:maxLines="2"
+                        android:textStyle="normal"
+                        android:id="@+id/description"
+                        android:textSize="12sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
             </LinearLayout>
 
         </LinearLayout>
