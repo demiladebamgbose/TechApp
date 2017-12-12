@@ -1,6 +1,7 @@
 package inc.maprace.techapp.viewmodels;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModel;
 
@@ -24,10 +25,25 @@ public class MainViewModel extends ViewModel {
         return mArticles;
     }
 
+    private MutableLiveData<Boolean> mRefreshIndicator = new MutableLiveData<>();
+    public MutableLiveData<Boolean> getRefreshIndicator() { return mRefreshIndicator; }
+
+    public void setRefreshIndicator(Boolean refreshIndicator) { mRefreshIndicator.setValue(refreshIndicator);}
 
     public MainViewModel (ArticlesRepository repository) {
         mRepository = repository;
         mArticles = Transformations.map(mRepository.getArticles(), (articles) -> articles);
+    }
+
+    public void getNews() {
+        mRepository.fetchData();
+    }
+
+    public void getNews(String searchString) {
+        mRepository.fetchData(searchString);
+    }
+    public void getNewsByCategory(String categoty) {
+        mRepository.fetchDataByCategoty(categoty);
     }
 
 

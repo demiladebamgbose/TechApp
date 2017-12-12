@@ -23,4 +23,8 @@ public interface ArticleDao {
 
     @Insert(onConflict = REPLACE)
     void addNews (List<Article> articles);
+
+
+    @Query("DELETE FROM " + Article.TABLE_NAME)
+    void emptyTable();
 }

@@ -35,7 +35,7 @@ public class ArticlesRepository {
         return mArticleDatabase.articleDao().getArticles();
     }
 
-    private void fetchData() {
+    public void fetchData() {
         mNewsInterface.getTopNews(mApplication.getResources().getString(R.string.api_key), TECHNOLOGY).enqueue(
                 new Callback<NewsResponse>() {
                     @Override
@@ -48,6 +48,60 @@ public class ArticlesRepository {
                                 articlesList.add(new Article(article));
                             }
 
+                            mArticleDatabase.articleDao().emptyTable();
+                            mArticleDatabase.articleDao().addNews(articlesList);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<NewsResponse> call, Throwable t) {
+                        // Handle on failure
+                    }
+                }
+        );
+    }
+
+
+    public void fetchData(String searchString) {
+        mNewsInterface.getTopNews(mApplication.getResources().getString(R.string.api_key), TECHNOLOGY, searchString).enqueue(
+                new Callback<NewsResponse>() {
+                    @Override
+                    public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+
+                        if (response.code() == 200 && response.body().getStatus().equals("ok")) {
+                            List<Article> articlesList = new ArrayList<>();
+
+                            for (inc.maprace.techapp.retrofit.model.Article article : response.body().getArticles()) {
+                                articlesList.add(new Article(article));
+                            }
+
+                            mArticleDatabase.articleDao().emptyTable();
+                            mArticleDatabase.articleDao().addNews(articlesList);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<NewsResponse> call, Throwable t) {
+                        // Handle on failure
+                    }
+                }
+        );
+    }
+
+    public void fetchDataByCategoty (String category) {
+        mNewsInterface.getTopNews(mApplication.getResources().getString(R.string.api_key), category).enqueue(
+                new Callback<NewsResponse>() {
+                    @Override
+                    public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+
+                        if (response.code() == 200 && response.body().getStatus().equals("ok")) {
+                            List<Article> articlesList = new ArrayList<>();
+
+                            for (inc.maprace.techapp.retrofit.model.Article article : response.body().getArticles()) {
+                                articlesList.add(new Article(article));
+                            }
+
+                            mArticleDatabase.articleDao().emptyTable();
                             mArticleDatabase.articleDao().addNews(articlesList);
                         }
                     }

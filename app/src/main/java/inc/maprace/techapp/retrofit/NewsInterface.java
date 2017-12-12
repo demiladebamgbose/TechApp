@@ -13,4 +13,7 @@ public interface NewsInterface {
     @GET("top-headlines")
     Call<NewsResponse> getTopNews (@Query("apiKey") String apiKey, @Query("category") String category);
 
+    @GET("top-headlines")
+    Call<NewsResponse> getTopNews (@Query("apiKey") String apiKey, @Query("category") String category, @Query("q") String searchString);
+
 }

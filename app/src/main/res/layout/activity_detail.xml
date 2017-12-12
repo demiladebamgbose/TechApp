@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical">
-    
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:background="#eee"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"></android.support.v7.widget.Toolbar>
+        android:layout_height="?android:attr/actionBarSize" />
 
     <ImageView
         android:layout_width="match_parent"

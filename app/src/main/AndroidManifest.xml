@@ -3,6 +3,7 @@
     package="inc.maprace.techapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".TechAppApplication"
@@ -12,7 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity">
+        <receiver
+            android:name=".network.ConnectivityChangeReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activities.MainActivity"
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +33,10 @@
             android:name=".activities.DetailActivity"
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/NoActionBarTheme" />
-        <activity android:name=".activities.WebViewActivity"
+        <activity
+            android:name=".activities.WebViewActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".activities.SettingsActivity"
             android:theme="@style/NoActionBarTheme"></activity>
     </application>
 

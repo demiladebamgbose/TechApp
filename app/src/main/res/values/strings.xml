@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Techapp</string>
+    <string name="preferences">Preferences</string>
 </resources>

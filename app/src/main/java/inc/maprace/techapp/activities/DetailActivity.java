@@ -72,18 +72,21 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        try {
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_SUBJECT, article.getUrl());
-            startActivity(Intent.createChooser(intent, "Share this news via: "));
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-
-        return  true;
+        if (item.getItemId() == R.id.share) {
+            try {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, article.getUrl());
+                startActivity(Intent.createChooser(intent, "Share this news via: "));
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+            return  true;
+        } else
+            return super.onOptionsItemSelected(item);
     }
 
     @Override

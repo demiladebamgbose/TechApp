@@ -19,4 +19,8 @@
         <item name="android:textColor">@color/darkgrey</item>
     </style>
 
+    <style name="toolbar_popup_style" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 </resources>

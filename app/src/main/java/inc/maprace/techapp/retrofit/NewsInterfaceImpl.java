@@ -7,11 +7,7 @@ import retrofit2.Call;
  * Created by demiladebamgbose on 12/11/17.
  */
 
-public class NewsInterfaceImpl implements NewsInterface {
+public class NewsInterfaceImpl  {
 
-    @Override
-    public Call<NewsResponse> getTopNews(String apiKey, String category) {
-        return getTopNews(apiKey, category);
-    }
 
 }

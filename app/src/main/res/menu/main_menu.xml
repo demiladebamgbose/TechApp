@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/politics"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="Politics"
+            android:titleCondensed="Options"></item>
+        <item
+            android:id="@+id/business"
+            android:checkable="true"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="Business"
+            android:titleCondensed="Persist"></item>
+
+        <item
+            android:id="@+id/sport"
+            android:checkable="true"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title= "Sport"
+            android:titleCondensed="Persist"></item>
+
+        <item
+            android:id="@+id/general"
+            android:checkable="true"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="General"
+            android:titleCondensed="Persist" />
+
+        <item
+            android:id="@+id/music"
+            android:checkable="true"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="Music"
+            android:titleCondensed="Persist"/>
+
+        <item
+            android:id="@+id/technology"
+            android:checkable="true"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="Music"
+            android:titleCondensed="Persist"/>
+    </group>
+    <item
+        android:title="settings"
+        android:id="@+id/setting"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_search"
+        android:iconTint="@color/colorAccent"/>
+
+
+</menu>
