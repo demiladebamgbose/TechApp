@@ -11,9 +11,9 @@ import retrofit2.http.Query;
 
 public interface NewsInterface {
     @GET("top-headlines")
-    Call<NewsResponse> getTopNews (@Query("apiKey") String apiKey, @Query("category") String category);
+    Call<NewsResponse> getTopNews (@Query("apiKey") String apiKey, @Query("category") String category, @Query("language") String language);
 
     @GET("top-headlines")
-    Call<NewsResponse> getTopNews (@Query("apiKey") String apiKey, @Query("category") String category, @Query("q") String searchString);
+    Call<NewsResponse> getTopNews (@Query("apiKey") String apiKey, @Query("category") String category, @Query("q") String searchString, @Query("language") String language);
 
 }

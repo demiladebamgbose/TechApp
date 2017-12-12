@@ -23,6 +23,7 @@ public class ArticlesRepository {
     private TechAppApplication mApplication;
 
     private static final String TECHNOLOGY = "technology";
+    private static final String LANGUAGE = "en";
 
     public ArticlesRepository(ArticleDatabase articleDatabase, NewsInterface newsInterface, TechAppApplication appApplication) {
         mArticleDatabase = articleDatabase;
@@ -36,7 +37,7 @@ public class ArticlesRepository {
     }
 
     public void fetchData() {
-        mNewsInterface.getTopNews(mApplication.getResources().getString(R.string.api_key), TECHNOLOGY).enqueue(
+        mNewsInterface.getTopNews(mApplication.getResources().getString(R.string.api_key), TECHNOLOGY, LANGUAGE).enqueue(
                 new Callback<NewsResponse>() {
                     @Override
                     public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
@@ -63,7 +64,7 @@ public class ArticlesRepository {
 
 
     public void fetchData(String searchString) {
-        mNewsInterface.getTopNews(mApplication.getResources().getString(R.string.api_key), TECHNOLOGY, searchString).enqueue(
+        mNewsInterface.getTopNews(mApplication.getResources().getString(R.string.api_key), TECHNOLOGY, searchString, LANGUAGE).enqueue(
                 new Callback<NewsResponse>() {
                     @Override
                     public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
@@ -89,7 +90,7 @@ public class ArticlesRepository {
     }
 
     public void fetchDataByCategoty (String category) {
-        mNewsInterface.getTopNews(mApplication.getResources().getString(R.string.api_key), category).enqueue(
+        mNewsInterface.getTopNews(mApplication.getResources().getString(R.string.api_key), category, LANGUAGE).enqueue(
                 new Callback<NewsResponse>() {
                     @Override
                     public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {

@@ -18,18 +18,16 @@ public class MainViewModel extends ViewModel {
 
     private ArticlesRepository mRepository;
 
-
     private LiveData<List<Article>> mArticles;
-
     public LiveData<List<Article>> getArticles() {
         return mArticles;
     }
 
     private MutableLiveData<Boolean> mRefreshIndicator = new MutableLiveData<>();
     public MutableLiveData<Boolean> getRefreshIndicator() { return mRefreshIndicator; }
-
     public void setRefreshIndicator(Boolean refreshIndicator) { mRefreshIndicator.setValue(refreshIndicator);}
 
+    //
     public MainViewModel (ArticlesRepository repository) {
         mRepository = repository;
         mArticles = Transformations.map(mRepository.getArticles(), (articles) -> articles);

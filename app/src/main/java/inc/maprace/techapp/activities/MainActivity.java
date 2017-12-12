@@ -39,9 +39,11 @@ public class MainActivity extends AppCompatActivity implements ConnectivityChang
 
     @Inject
     ViewModelFactory mVmFactory;
+
     private MainViewModel mainViewModel;
     private NewsAdapter mNewsAdapter;
 
+    // View Bindings
     @BindView(R.id.search_text) EditText mSearchText;
     @BindView(R.id.recycler_view) RecyclerView mNewsList;
     @BindView(R.id.toolbar) Toolbar mToolbar;
@@ -81,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements ConnectivityChang
     }
 
     private void registerObservers() {
-
         mainViewModel.getArticles().observe(this, (articles -> {
             mNewsAdapter.setmArticles(articles);
         }));
@@ -89,8 +90,8 @@ public class MainActivity extends AppCompatActivity implements ConnectivityChang
         mainViewModel.getRefreshIndicator().observe(this, (bool) -> {
             if (bool && bool !=null)
                 mainViewModel.getArticles();
-
-            Toast.makeText(this, "Internet connection unavailable, plse check your neteork and try again", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(this, "Internet connection unavailable, plse check your neteork and try again", Toast.LENGTH_LONG).show();
         });
     }
 

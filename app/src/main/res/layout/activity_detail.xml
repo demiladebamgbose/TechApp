@@ -32,9 +32,7 @@
                 android:layout_marginStart="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:text="gdfgdfdfdfdfdffdfdfdffddff"
-                android:layout_alignParentBottom="true"/>
+                android:layout_gravity="center"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -53,8 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/news_body"
-                android:layout_height="wrap_content"
-                android:text="Description cvbvbnnmbbnmbnm bmnbnbbnbnvbcvc vcvcvcvcvcv cvcvbcc ccvvbccvcbvcbvcvbcbvcb cbvcbcvb"/>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -77,12 +74,12 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="Source:"/>
+                    android:text="@string/source"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:id="@+id/source"
-                    android:text="John doe"
+                    android:text="@string/john_doe"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -96,12 +93,11 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="Author:"/>
+                    android:text="@string/author"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:id="@+id/author"
-                    android:text="John doe"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -114,12 +110,11 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="Date:"/>
+                    android:text="@string/date"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:id="@+id/date"
-                    android:text="John doe"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -136,7 +131,7 @@
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
         android:layout_gravity="center_horizontal"
-        android:text=" check this out"
+        android:text="@string/check_this_out"
         android:id="@+id/link_out"
         android:layout_width="wrap_content"
         android:layout_height="40dp" />
@@ -146,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="poweredby News API"
+        android:text="@string/poweredby_news_api"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

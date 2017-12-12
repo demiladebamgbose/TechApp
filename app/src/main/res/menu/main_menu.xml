@@ -7,20 +7,20 @@
             android:id="@+id/politics"
             android:icon="@android:drawable/ic_menu_preferences"
             android:title="Politics"
-            android:titleCondensed="Options"></item>
+            android:titleCondensed="Options" />
         <item
             android:id="@+id/business"
             android:checkable="true"
             android:icon="@android:drawable/ic_menu_preferences"
             android:title="Business"
-            android:titleCondensed="Persist"></item>
+            android:titleCondensed="Persist" />
 
         <item
             android:id="@+id/sport"
             android:checkable="true"
             android:icon="@android:drawable/ic_menu_preferences"
-            android:title= "Sport"
-            android:titleCondensed="Persist"></item>
+            android:title="Sport"
+            android:titleCondensed="Persist" />
 
         <item
             android:id="@+id/general"
