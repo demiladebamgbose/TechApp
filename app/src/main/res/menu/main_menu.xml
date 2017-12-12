@@ -40,7 +40,7 @@
             android:id="@+id/technology"
             android:checkable="true"
             android:icon="@android:drawable/ic_menu_preferences"
-            android:title="Music"
+            android:title="Technoogy"
             android:titleCondensed="Persist"/>
     </group>
     <item
