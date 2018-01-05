@@ -9,7 +9,6 @@ import inc.maprace.techapp.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
-
     @BindView(R.id.toolbar) Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
