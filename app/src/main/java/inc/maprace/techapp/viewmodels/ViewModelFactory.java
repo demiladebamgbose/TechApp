@@ -12,7 +12,7 @@ import inc.maprace.techapp.data.ArticlesRepository;
  */
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
-    ArticlesRepository mArticleRepository;
+    private ArticlesRepository mArticleRepository;
 
     public ViewModelFactory (ArticlesRepository articlesRepository) {
         mArticleRepository = articlesRepository;

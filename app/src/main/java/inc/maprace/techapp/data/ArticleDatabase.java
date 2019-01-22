@@ -8,7 +8,7 @@ import android.arch.persistence.room.migration.Migration;
 /**
  * Created by demiladebamgbose on 12/11/17.
  */
-@Database(entities = {Article.class}, version = 1)
+@Database(entities = {Article.class}, version = 1, exportSchema = false)
 public abstract class ArticleDatabase extends RoomDatabase{
     public abstract ArticleDao articleDao();
 
